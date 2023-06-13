@@ -7,6 +7,9 @@ def main():
     screen = pg.display.set_mode((800, 600))
     clock  = pg.time.Clock()
     bg_img = pg.image.load("ex01/fig/pg_bg.jpg")
+    kt_img = pg.image.load("ex01/fig/3.png")
+    kt_img = pg.transform.flip(kt_img, True, False)
+    kt_imgs = [kt_img, pg.transform.rotozoom(kt_img, 10, 1.0)]
     tmr = 0
     while True:
         for event in pg.event.get():
