@@ -11,15 +11,22 @@ def main():
     kt_img = pg.transform.flip(kt_img, True, False)
     kt_imgs = [kt_img, pg.transform.rotozoom(kt_img, 10, 1.0)]
     tmr = 0
+
+    
     while True:
         for event in pg.event.get():
             if event.type == pg.QUIT: return
 
-        screen.blit(bg_img, [0, 0])
+        screen.blit(bg_img, [-tmr, 0])
+        screen.blit(bg_img,[-tmr+1600,0])
         screen.blit(kt_imgs[tmr%2], [300, 200])
         pg.display.update()
-        tmr += 1        
-        clock.tick(10)
+        tmr += 1
+        
+        if(tmr > 1600):
+            tmr = 0  
+                   
+        clock.tick(100)
 
 
 if __name__ == "__main__":
