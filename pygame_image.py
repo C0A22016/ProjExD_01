@@ -12,11 +12,10 @@ def main():
     
     kt_img = pg.image.load("ex01/fig/3.png")
     kt_img = pg.transform.flip(kt_img, True, False)
-    kt_imgs = [pg.transform.rotozoom(kt_img, i, 1.0) for i in range(11)]
     
     tmr = 0
     kt_mv = 0
-    mv_num = 1
+    mv_num = 0.5
     flipFlag = True
     
     while True:
@@ -30,7 +29,7 @@ def main():
         tmr += 1
         kt_mv += mv_num
         
-        if(kt_mv > 10 or kt_mv < 0):
+        if(kt_mv > 10 or kt_mv < -5):
             mv_num *= -1
         
         if(tmr > 1600):
@@ -39,7 +38,7 @@ def main():
             bg_img2 = pg.transform.flip(bg_img, -flipFlag, False)
             flipFlag = -flipFlag 
                    
-        clock.tick(100)
+        clock.tick(10)
 
 
 if __name__ == "__main__":
